@@ -1,6 +1,7 @@
 import './index.css';
 
-import App from './App';
+import { BrowserRouter } from 'react-router-dom';
+import Home from './routes/home/Home';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
@@ -9,7 +10,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     // checking deprecated code for react, show warning
     <React.StrictMode>
-            <App />
+        <BrowserRouter>
+            <Home></Home>
+        </BrowserRouter>
     </React.StrictMode>
 );
 
