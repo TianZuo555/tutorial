@@ -1,3 +1,6 @@
+import './sign-up.styles.scss';
+
+import { Button } from '../button/button.component';
 import FormInput from '../formInput/FormInput.component';
 import { postByApiEndpoint } from '../../apiUtils/apiUtils';
 import { useState } from 'react';
@@ -27,8 +30,9 @@ export function SignUp() {
     };
 
     return (
-        <div>
-            <h2>Sign Up with username and password.</h2>
+        <div className='sign-up-container'>
+            <h2>Do not have an account ?</h2>
+            <span>Sign Up with username and password.</span>
             <form onSubmit={onSubmit}>
                 <FormInput label={'Name'} name={'name'} onChange={handleChange} value={name} type='text' />
                 <FormInput
@@ -37,6 +41,7 @@ export function SignUp() {
                     onChange={handleChange}
                     value={username}
                     type='text'
+                    required
                 />
                 <FormInput
                     label={'Password'}
@@ -44,6 +49,7 @@ export function SignUp() {
                     onChange={handleChange}
                     value={password}
                     type='password'
+                    required
                 />
                 <FormInput
                     label={'Password Confirmation'}
@@ -51,6 +57,7 @@ export function SignUp() {
                     onChange={handleChange}
                     value={confirmPassword}
                     type='password'
+                    required
                 />
                 <FormInput
                     label={'E-mail address'}
@@ -58,9 +65,10 @@ export function SignUp() {
                     onChange={handleChange}
                     value={email}
                     type='text'
+                    required
                 />
 
-                <button type='submit'>Sign Up</button>
+                <Button type='submit'>Sign Up</Button>
             </form>
         </div>
     );
