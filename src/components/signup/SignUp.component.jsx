@@ -1,6 +1,4 @@
-import './sign-up.styles.scss';
-
-import { Button } from '../button/button.component';
+import Button from '../button/Button.component';
 import FormInput from '../formInput/FormInput.component';
 import { postByApiEndpoint } from '../../apiUtils/apiUtils';
 import { useState } from 'react';
@@ -21,6 +19,7 @@ export function SignUp() {
     const onSubmit = async (e) => {
         e.preventDefault();
         const result = await postByApiEndpoint(userEndPoints.signUp, formData);
+        // to do change to modal
         console.log(result);
     };
 
@@ -53,7 +52,7 @@ export function SignUp() {
                 />
                 <FormInput
                     label={'Password Confirmation'}
-                    name={'conformPassword'}
+                    name={'confirmPassword'}
                     onChange={handleChange}
                     value={confirmPassword}
                     type='password'
@@ -73,3 +72,5 @@ export function SignUp() {
         </div>
     );
 }
+
+export default SignUp;

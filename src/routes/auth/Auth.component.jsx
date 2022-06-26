@@ -1,8 +1,12 @@
-import { SignUp } from "../../components/signup/SignUp.component";
+import './auth.styles.scss'
 
-export default function SignIn(props) {
+import Login from "../../components/login/Login.component";
+import SignUp from "../../components/signup/SignUp.component";
+
+export default function Ath(props) {
     return (
-        <div>
+        <div className="auth-container">
+            <Login></Login>
             <SignUp></SignUp>
         </div>
     );

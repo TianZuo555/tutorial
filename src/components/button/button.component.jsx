@@ -5,10 +5,12 @@ const buttonClass = {
     inverted: 'btn-inverted',
 };
 
-export const Button = ({ children, btnType, ...otherProps }) => {
+const Button = ({ children, btnType, ...otherProps }) => {
     return (
         <button className={`btn-container ${buttonClass[btnType]}`} {...otherProps}>
             {children}
         </button>
     );
 };
+
+export default Button;
