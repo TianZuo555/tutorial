@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Home from './routes/home/Home';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { UserProvider } from './contexts/User.context';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -11,7 +12,9 @@ root.render(
     // checking deprecated code for react, show warning
     // <React.StrictMode>
     <BrowserRouter>
-        <Home></Home>
+        <UserProvider>
+            <Home></Home>
+        </UserProvider>
     </BrowserRouter>
     // </React.StrictMode>
 );

@@ -1,8 +1,15 @@
 import Button from '../button/Button.component';
 import FormInput from '../formInput/FormInput.component';
+import { UserContext } from '../../contexts/User.context';
+import { postByApiEndpoint } from '../../apiUtils/apiUtils';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { userEndPoints } from '../../apiUtils/apiEndPoints';
 
 const Login = (props) => {
+    const navigation= useNavigate();
+
     const defaultFormData = {
         username: '',
         password: '',
@@ -15,11 +22,22 @@ const Login = (props) => {
         setFormData({ ...formData, [name]: value });
     };
 
+    const { setUser } = useContext(UserContext);
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const user = await postByApiEndpoint(userEndPoints.login, formData);
+        if (user) {
+            setUser(user);
+            navigation('/');
+        }
+    };
+
     return (
         <div className='login-container'>
             <h2>Login</h2>
             <span>Sign In with username and password.</span>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <FormInput
                     label={'User Name'}
                     name={'username'}
